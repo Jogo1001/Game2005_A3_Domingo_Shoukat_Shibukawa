@@ -57,4 +57,22 @@ public class pokeball : MonoBehaviour
             Pokeball.isKinematic = true;
         }
     }
+
+    private void OnMouseUp()
+    {
+        if (!IsDragging)
+        {
+            IsDragging = false;
+            Pokeball.isKinematic = false;
+
+            Drag_Release_Position = Pokeball.transform.position;
+            Vector2 Displacement = (Vector2)Pokeball_Rest_Position.position - Drag_Release_Position;
+            Vector2 LaunchVelocity = Displacement * Slingshot_Power / Pokeball.mass;
+
+            Pokeball.velocity = LaunchVelocity;
+
+
+        }
+
+    }
 }
