@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,6 +74,15 @@ public class pokeball : MonoBehaviour
 
 
         }
+
+    }
+    private void UpdateSlingShotLines()
+    {
+        Slingshot_Line_Left.SetPosition(0, Slingshot_left.position);
+        Slingshot_Line_Left.SetPosition(1, Pokeball.transform.position);
+
+        Slingshot_Line_Right.SetPosition(0, Slingshot_right.position);
+        Slingshot_Line_Right.SetPosition(1, Pokeball.transform.position);
 
     }
 }
