@@ -133,6 +133,6 @@ public class pokeball : MonoBehaviour
     }
     private void UpdateScore()
     {
-        ScoreText.text = "Score: " + score;
+        ScoreText.text = "SCORE: " + score;
     }
 }
