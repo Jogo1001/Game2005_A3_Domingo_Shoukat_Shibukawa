@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b44c213672358d149a3bf752b6547778
+guid: 4da75e1fcd3fb2a4a8b1580b71d48b57
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,106 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: voltrob_0
+      name: bgElements_spritesheet_54
       rect:
         serializedVersion: 2
-        x: 21
-        y: 722
-        width: 494
-        height: 489
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de4a545916329894f94c8cee378c7d76
-      internalID: 907928984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: voltrob_1
-      rect:
-        serializedVersion: 2
-        x: 565
-        y: 722
-        width: 494
-        height: 489
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2a2b4fa42446484c9ac9513c9fd9362
-      internalID: -19479614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: voltrob_2
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 205
-        width: 494
-        height: 489
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84546c277470ee8488ad54a23316fe6e
-      internalID: -1878598500
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: voltrob_3
-      rect:
-        serializedVersion: 2
-        x: 565
-        y: 205
-        width: 494
-        height: 489
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8358a0d564b636547a6891c56bba529c
-      internalID: 149929755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: voltrob_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1080
+        x: 514
+        y: 192
+        width: 217
         height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c8bc543a7ab8a642a1f4a3a1254f94a
-      internalID: -1971770949
+      spriteID: f110a89138deaef40b88a7c7317e1144
+      internalID: -490606221
       vertices: []
       indices: 
       edges: []
@@ -238,11 +154,71 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      voltrob_0: 907928984
-      voltrob_1: -19479614
-      voltrob_2: -1878598500
-      voltrob_3: 149929755
-      voltrob_4: -1971770949
+      bgElements_spritesheet_0: -17910867
+      bgElements_spritesheet_1: -747716868
+      bgElements_spritesheet_10: -442537704
+      bgElements_spritesheet_11: -1003057123
+      bgElements_spritesheet_12: 1545597132
+      bgElements_spritesheet_13: -1794061062
+      bgElements_spritesheet_14: 349270565
+      bgElements_spritesheet_15: -241106766
+      bgElements_spritesheet_16: 1320711830
+      bgElements_spritesheet_17: 690224992
+      bgElements_spritesheet_18: -491789874
+      bgElements_spritesheet_19: 876304675
+      bgElements_spritesheet_2: 1082628307
+      bgElements_spritesheet_20: -1455429466
+      bgElements_spritesheet_21: -1898080415
+      bgElements_spritesheet_22: 291760294
+      bgElements_spritesheet_23: -954397731
+      bgElements_spritesheet_24: -135015394
+      bgElements_spritesheet_25: -1971037739
+      bgElements_spritesheet_26: 1569935786
+      bgElements_spritesheet_27: -601766892
+      bgElements_spritesheet_28: -485956442
+      bgElements_spritesheet_29: -1985648673
+      bgElements_spritesheet_3: -1581252984
+      bgElements_spritesheet_30: -863626191
+      bgElements_spritesheet_31: -1097591997
+      bgElements_spritesheet_32: -567725952
+      bgElements_spritesheet_33: 917358098
+      bgElements_spritesheet_34: 1679834848
+      bgElements_spritesheet_35: 953215121
+      bgElements_spritesheet_36: -2066049662
+      bgElements_spritesheet_37: 2041131022
+      bgElements_spritesheet_38: 1860063851
+      bgElements_spritesheet_39: 1605734015
+      bgElements_spritesheet_4: -529188790
+      bgElements_spritesheet_40: -845582997
+      bgElements_spritesheet_41: -721931378
+      bgElements_spritesheet_42: -411881305
+      bgElements_spritesheet_43: 1734583966
+      bgElements_spritesheet_44: -1361184932
+      bgElements_spritesheet_45: -1611068058
+      bgElements_spritesheet_46: -743132315
+      bgElements_spritesheet_47: -992379159
+      bgElements_spritesheet_48: 1170916817
+      bgElements_spritesheet_49: 1339150993
+      bgElements_spritesheet_5: 1940315183
+      bgElements_spritesheet_50: -1253184070
+      bgElements_spritesheet_51: 1923191114
+      bgElements_spritesheet_52: 56478595
+      bgElements_spritesheet_53: 770455459
+      bgElements_spritesheet_54: -490606221
+      bgElements_spritesheet_55: 1467162035
+      bgElements_spritesheet_56: -1930261374
+      bgElements_spritesheet_57: -722235192
+      bgElements_spritesheet_58: 838596886
+      bgElements_spritesheet_59: 1560539967
+      bgElements_spritesheet_6: 1271785119
+      bgElements_spritesheet_60: 1662195415
+      bgElements_spritesheet_61: 968985040
+      bgElements_spritesheet_62: 2107192290
+      bgElements_spritesheet_63: 162662990
+      bgElements_spritesheet_64: -1867929348
+      bgElements_spritesheet_7: 332806620
+      bgElements_spritesheet_8: -828453603
+      bgElements_spritesheet_9: -1146257295
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
