@@ -10,8 +10,8 @@ public class pokeball : MonoBehaviour
     public Transform Slingshot_left;
     public Transform Slingshot_right;
     public Rigidbody2D Pokeball;
-    public float Slingshot_Power = 0f;
-    public float Max_Drag_Distance = 0f;
+    public float Slingshot_Power = 1f;
+    public float Max_Drag_Distance = 1f;
     public LineRenderer Slingshot_Line_Left;
     public LineRenderer Slingshot_Line_Right;
     public Text ScoreText;
@@ -23,10 +23,17 @@ public class pokeball : MonoBehaviour
     private int score = 0;
     void Start()
     {
+        ResetPokeball();
+        UpdateScore();
+
+
+        Slingshot_Line_Left.positionCount = 2;
+        Slingshot_Line_Right.positionCount = 2;
+        ResetSlingShotLines();
 
 
 
-        
+
     }
 
     // Update is called once per frame
@@ -44,15 +51,16 @@ public class pokeball : MonoBehaviour
             }
             Pokeball.transform.position = (Vector2)Pokeball_Rest_Position.position + Displacement;
 
-
+            UpdateSlingShotPosition();
 
         }
 
     }
 
+
     private void OnMouseDown()
     {
-        if(!IsDragging)
+        if (!IsDragging)
         {
             IsDragging = true;
             Pokeball.isKinematic = true;
@@ -61,7 +69,7 @@ public class pokeball : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (!IsDragging)
+        if (IsDragging)
         {
             IsDragging = false;
             Pokeball.isKinematic = false;
@@ -72,17 +80,59 @@ public class pokeball : MonoBehaviour
 
             Pokeball.velocity = LaunchVelocity;
 
+            ResetSlingShotLines();
 
+            StartCoroutine(ResetPokeballTime(5f));
         }
 
     }
-    private void UpdateSlingShotLines()
+    private void UpdateSlingShotPosition()
     {
         Slingshot_Line_Left.SetPosition(0, Slingshot_left.position);
         Slingshot_Line_Left.SetPosition(1, Pokeball.transform.position);
 
         Slingshot_Line_Right.SetPosition(0, Slingshot_right.position);
         Slingshot_Line_Right.SetPosition(1, Pokeball.transform.position);
+    }
 
+
+    private void ResetSlingShotLines()
+    {
+        Slingshot_Line_Left.SetPosition(0, Slingshot_left.position);
+        Slingshot_Line_Left.SetPosition(1, Pokeball_Rest_Position.position);
+
+        Slingshot_Line_Right.SetPosition(0, Slingshot_right.position);
+        Slingshot_Line_Right.SetPosition(1, Pokeball_Rest_Position.position);
+
+    }
+
+    private IEnumerator ResetPokeballTime(float delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+        ResetPokeball();
+    }
+
+    private void ResetPokeball()
+    {
+        Pokeball.isKinematic = true;
+        Pokeball.velocity = Vector2.zero;
+        Pokeball.angularVelocity = 0f;
+        Pokeball.transform.position = Pokeball_Rest_Position.position;
+        ResetSlingShotLines();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Voltrob"))
+        {
+            Destroy(collision.gameObject);
+            score++;
+            UpdateScore();
+        }
+    }
+    private void UpdateScore()
+    {
+        ScoreText.text = "Score: " + score;
     }
 }
