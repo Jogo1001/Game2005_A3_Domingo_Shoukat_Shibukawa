@@ -13,11 +13,11 @@ public class plane : MonoBehaviour
     private void FixedUpdate()
     {
 
-        //Vector2 Plane_Normal = GetPlaneNormal();
+        Vector2 Plane_Normal = GetPlaneNormal();
 
         if(pokeball != null)
         {
-            // PlaneCollision(pokeball, Plane_Normal);
+            PlaneCollision(pokeball, Plane_Normal);
         }
 
 
@@ -25,10 +25,16 @@ public class plane : MonoBehaviour
         {
             if (voltrob != null)
             {
-                //PlaneCollision(voltrob, Plane_Normal);
+                PlaneCollision(voltrob, Plane_Normal);
             }
         }
     }
+    private Vector2 GetPlaneNormal()
+    {
+        return transform.up;
+
+    }
+
     private void PlaneCollision(Rigidbody2D rb, Vector2 Plane_Normal)
     {
         CircleCollider2D collider = rb.GetComponent<CircleCollider2D>();
@@ -54,6 +60,8 @@ public class plane : MonoBehaviour
             rb.velocity = velocity;
         }
     }
+
+
 
 
 }
