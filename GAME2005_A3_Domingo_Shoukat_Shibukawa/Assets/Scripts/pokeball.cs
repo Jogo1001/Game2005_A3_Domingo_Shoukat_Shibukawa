@@ -13,13 +13,14 @@ public class pokeball : MonoBehaviour
     public LineRenderer Slingshot_Line_Left;
     public LineRenderer Slingshot_Line_Right;
     public Text ScoreText;
+    public plane Plane_Horizontal; // reference plane script
+    public plane Plane_Inclined; // reference plane script
 
     private bool IsDragging = false;
     private Vector2 Drag_Start_Position;
     private Vector2 Drag_Release_Position;
     private int score = 0;
 
-  
     private Vector2 Pokeball_Velocity;
     private Vector2 Pokeball_Acceleration;
     private float Pokeball_Gravity = -9.81f;
@@ -38,7 +39,6 @@ public class pokeball : MonoBehaviour
     {
         if (IsDragging)
         {
-            
             Vector2 MouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 Displacement = MouseWorldPosition - (Vector2)Pokeball_Rest_Position.position;
 
@@ -53,12 +53,33 @@ public class pokeball : MonoBehaviour
         }
         else
         {
-           
-            if (transform.position != (Vector3)Pokeball_Rest_Position.position) 
+            if (transform.position != (Vector3)Pokeball_Rest_Position.position)
             {
                 Pokeball_Acceleration = new Vector2(0, Pokeball_Gravity);
                 Pokeball_Velocity += Pokeball_Acceleration * Time.deltaTime;
-                transform.position += (Vector3)(Pokeball_Velocity * Time.deltaTime);
+                Vector2 newPosition = (Vector2)transform.position + Pokeball_Velocity * Time.deltaTime;
+
+               
+                if (Plane_Horizontal.CheckGroundCollision(ref newPosition, ref Pokeball_Velocity))
+                {
+                  
+                    transform.position = newPosition;
+                }
+
+                if (Plane_Inclined.CheckGroundCollision(ref newPosition, ref Pokeball_Velocity))
+                {
+
+                    transform.position = newPosition;
+                }
+                else
+                {
+                    
+                    transform.position = newPosition;
+                }
+                VoltrobCollision(newPosition);
+
+               
+                transform.position = newPosition;
             }
         }
     }
@@ -68,7 +89,7 @@ public class pokeball : MonoBehaviour
         if (!IsDragging)
         {
             IsDragging = true;
-            Pokeball_Velocity = Vector2.zero;  
+            Pokeball_Velocity = Vector2.zero;
         }
     }
 
@@ -82,7 +103,6 @@ public class pokeball : MonoBehaviour
             Vector2 Displacement = (Vector2)Pokeball_Rest_Position.position - Drag_Release_Position;
             Pokeball_Velocity = Displacement * Slingshot_Power;
 
-            
             ResetSlingShotLines();
 
             StartCoroutine(ResetPokeballTime(5f));
@@ -91,7 +111,6 @@ public class pokeball : MonoBehaviour
 
     private void UpdateSlingShotPosition()
     {
-        
         Slingshot_Line_Left.SetPosition(0, Slingshot_left.position);
         Slingshot_Line_Left.SetPosition(1, transform.position);
 
@@ -99,11 +118,8 @@ public class pokeball : MonoBehaviour
         Slingshot_Line_Right.SetPosition(1, transform.position);
     }
 
-
-
     private void ResetSlingShotLines()
     {
-       
         Slingshot_Line_Left.SetPosition(0, Slingshot_left.position);
         Slingshot_Line_Left.SetPosition(1, Pokeball_Rest_Position.position);
 
@@ -121,16 +137,21 @@ public class pokeball : MonoBehaviour
     {
         Pokeball_Velocity = Vector2.zero;
         transform.position = Pokeball_Rest_Position.position;
-        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void VoltrobCollision(Vector2 pokeballPosition)
     {
-        if (collision.gameObject.CompareTag("Voltrob"))
+       
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(pokeballPosition, 0.1f); 
+
+        foreach (Collider2D hit in hitEnemies)
         {
-            Destroy(collision.gameObject);
-            score++;
-            UpdateScore();
+            if (hit.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(hit.gameObject); 
+                score++; 
+                UpdateScore(); 
+            }
         }
     }
 
