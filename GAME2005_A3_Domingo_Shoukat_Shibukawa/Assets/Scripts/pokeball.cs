@@ -38,7 +38,7 @@ public class pokeball : MonoBehaviour
     {
         if (IsDragging)
         {
-            // Handle dragging logic
+            
             Vector2 MouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 Displacement = MouseWorldPosition - (Vector2)Pokeball_Rest_Position.position;
 
