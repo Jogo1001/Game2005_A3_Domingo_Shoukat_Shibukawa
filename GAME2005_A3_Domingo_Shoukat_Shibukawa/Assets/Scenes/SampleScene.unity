@@ -519,8 +519,6 @@ GameObject:
   m_Component:
   - component: {fileID: 637278079}
   - component: {fileID: 637278078}
-  - component: {fileID: 637278081}
-  - component: {fileID: 637278080}
   m_Layer: 0
   m_Name: Voltrob
   m_TagString: Voltrob
@@ -595,68 +593,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1990967501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &637278080
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637278077}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0000038146973, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.47
---- !u!50 &637278081
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637278077}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &693137144
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,9 +603,8 @@ GameObject:
   m_Component:
   - component: {fileID: 693137146}
   - component: {fileID: 693137145}
-  - component: {fileID: 693137148}
-  - component: {fileID: 693137147}
   - component: {fileID: 693137150}
+  - component: {fileID: 693137151}
   m_Layer: 5
   m_Name: pokeball
   m_TagString: Untagged
@@ -748,7 +683,27 @@ RectTransform:
   m_AnchoredPosition: {x: -7.74, y: -2.11}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!58 &693137147
+--- !u!114 &693137150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693137144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe8192a636e99745abe6921fbb9138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pokeball_Rest_Position: {fileID: 1174103816}
+  Slingshot_left: {fileID: 1752465301}
+  Slingshot_right: {fileID: 854681045}
+  Slingshot_Power: 7
+  Max_Drag_Distance: 1.8
+  Slingshot_Line_Left: {fileID: 896525230}
+  Slingshot_Line_Right: {fileID: 876093794}
+  ScoreText: {fileID: 1989008595}
+--- !u!58 &693137151
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -783,54 +738,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.4
---- !u!50 &693137148
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693137144}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &693137150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693137144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe8192a636e99745abe6921fbb9138a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pokeball_Rest_Position: {fileID: 1174103816}
-  Slingshot_left: {fileID: 1752465301}
-  Slingshot_right: {fileID: 854681045}
-  Pokeball: {fileID: 693137148}
-  Slingshot_Power: 7
-  Max_Drag_Distance: 1.8
-  Slingshot_Line_Left: {fileID: 896525230}
-  Slingshot_Line_Right: {fileID: 876093794}
-  ScoreText: {fileID: 1989008595}
 --- !u!1 &694387860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,12 +1002,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a93b517572b23f4cbd1a9901bd43ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pokeball: {fileID: 693137148}
+  pokeball: {fileID: 693137144}
   voltrobs:
-  - {fileID: 637278081}
-  - {fileID: 1430678061}
-  - {fileID: 1260125974}
-  - {fileID: 1804955074}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Bounce_Physics: 0.2
   Friction_Physics: 0.5
 --- !u!4 &859371426
@@ -1685,8 +1592,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1260125971}
   - component: {fileID: 1260125972}
-  - component: {fileID: 1260125974}
-  - component: {fileID: 1260125973}
   m_Layer: 0
   m_Name: Voltrob (2)
   m_TagString: Voltrob
@@ -1761,68 +1666,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1260125973
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260125970}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.47
---- !u!50 &1260125974
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260125970}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1344050691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,8 +1760,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1430678058}
   - component: {fileID: 1430678059}
-  - component: {fileID: 1430678061}
-  - component: {fileID: 1430678060}
   m_Layer: 0
   m_Name: Voltrob (1)
   m_TagString: Voltrob
@@ -1993,68 +1834,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1430678060
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430678057}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0000019073486}
-  serializedVersion: 2
-  m_Radius: 2.47
---- !u!50 &1430678061
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430678057}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1558335454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,14 +2031,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a93b517572b23f4cbd1a9901bd43ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pokeball: {fileID: 693137148}
+  pokeball: {fileID: 693137144}
   voltrobs:
-  - {fileID: 637278081}
-  - {fileID: 1430678061}
-  - {fileID: 1260125974}
-  - {fileID: 1804955074}
+  - {fileID: 637278077}
+  - {fileID: 1430678057}
+  - {fileID: 1260125970}
+  - {fileID: 1804955070}
   Bounce_Physics: 0.2
-  Friction_Physics: 0.5
+  Friction_Physics: 0.1
 --- !u!4 &1639917186
 Transform:
   m_ObjectHideFlags: 0
@@ -2316,8 +2095,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1804955071}
   - component: {fileID: 1804955072}
-  - component: {fileID: 1804955074}
-  - component: {fileID: 1804955073}
   m_Layer: 0
   m_Name: Voltrob (3)
   m_TagString: Voltrob
@@ -2392,68 +2169,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1804955073
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804955070}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0000038146973, y: -0.0000019073486}
-  serializedVersion: 2
-  m_Radius: 2.47
---- !u!50 &1804955074
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804955070}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1989008593
 GameObject:
   m_ObjectHideFlags: 0

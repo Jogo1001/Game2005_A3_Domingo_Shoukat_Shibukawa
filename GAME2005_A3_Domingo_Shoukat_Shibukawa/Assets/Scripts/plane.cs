@@ -15,13 +15,13 @@ public class plane : MonoBehaviour
 
         Vector2 Plane_Normal = GetPlaneNormal();
 
-        if(pokeball != null)
+        if (pokeball != null)
         {
             PlaneCollision(pokeball, Plane_Normal);
         }
 
 
-        foreach (Rigidbody2D voltrob in voltrobs )
+        foreach (Rigidbody2D voltrob in voltrobs)
         {
             if (voltrob != null)
             {
@@ -38,7 +38,7 @@ public class plane : MonoBehaviour
     private void PlaneCollision(Rigidbody2D rb, Vector2 Plane_Normal)
     {
         CircleCollider2D collider = rb.GetComponent<CircleCollider2D>();
-        if(collider == null)
+        if (collider == null)
         {
             return;
         }
@@ -48,9 +48,9 @@ public class plane : MonoBehaviour
         Vector2 Object_Position = rb.position;
         Vector2 Plane_Point = transform.position;
 
-        float Distance_from_Plane = Vector2.Dot(Object_Position - Plane_Point, Plane_Normal)- radius;
+        float Distance_from_Plane = Vector2.Dot(Object_Position - Plane_Point, Plane_Normal) - radius;
 
-        if(Distance_from_Plane < 0)
+        if (Distance_from_Plane < 0)
         {
             rb.position += -Distance_from_Plane * Plane_Normal;
             Vector2 velocity = rb.velocity;
