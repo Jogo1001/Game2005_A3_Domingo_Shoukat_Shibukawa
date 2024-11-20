@@ -8,14 +8,22 @@ public class pokeball : MonoBehaviour
     public Transform Pokeball_Rest_Position;
     public Transform Slingshot_left;
     public Transform Slingshot_right;
-    public float Slingshot_Power = 1f;
-    public float Max_Drag_Distance = 1f;
+    public float Slingshot_Power = 8f;
+    public float Max_Drag_Distance = 2f;
     public LineRenderer Slingshot_Line_Left;
     public LineRenderer Slingshot_Line_Right;
     public Text ScoreText;
     public plane Plane_Horizontal; // reference plane script
     public plane Plane_Inclined; // reference plane script
 
+    public float Mass = 1f; // Mass 
+    public float Gravity = -10f; // Gravity 
+
+    public Sprite PokeballSprite;
+    public Sprite RockSprite;
+    public Button ChangeButton;
+
+    private SpriteRenderer spriteRenderer;
     private bool IsDragging = false;
     private Vector2 Drag_Start_Position;
     private Vector2 Drag_Release_Position;
@@ -23,7 +31,6 @@ public class pokeball : MonoBehaviour
 
     private Vector2 Pokeball_Velocity;
     private Vector2 Pokeball_Acceleration;
-    private float Pokeball_Gravity = -9.81f;
 
     void Start()
     {
@@ -33,6 +40,13 @@ public class pokeball : MonoBehaviour
         Slingshot_Line_Left.positionCount = 2;
         Slingshot_Line_Right.positionCount = 2;
         ResetSlingShotLines();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+
+        ChangeButton.onClick.AddListener(TogglePokeballType);
+
+        SetPokeball();
     }
 
     void Update()
@@ -55,31 +69,29 @@ public class pokeball : MonoBehaviour
         {
             if (transform.position != (Vector3)Pokeball_Rest_Position.position)
             {
-                Pokeball_Acceleration = new Vector2(0, Pokeball_Gravity);
+
+                Pokeball_Acceleration = new Vector2(0, Gravity / Mass);
                 Pokeball_Velocity += Pokeball_Acceleration * Time.deltaTime;
+
                 Vector2 newPosition = (Vector2)transform.position + Pokeball_Velocity * Time.deltaTime;
 
-               
+
                 if (Plane_Horizontal.CheckGroundCollision(ref newPosition, ref Pokeball_Velocity))
                 {
-                  
                     transform.position = newPosition;
                 }
 
                 if (Plane_Inclined.CheckGroundCollision(ref newPosition, ref Pokeball_Velocity))
                 {
-
                     transform.position = newPosition;
                 }
                 else
                 {
-                    
                     transform.position = newPosition;
                 }
-                VoltrobCollision(newPosition);
 
-               
-                transform.position = newPosition;
+
+                VoltrobCollision(newPosition);
             }
         }
     }
@@ -101,7 +113,8 @@ public class pokeball : MonoBehaviour
 
             Drag_Release_Position = transform.position;
             Vector2 Displacement = (Vector2)Pokeball_Rest_Position.position - Drag_Release_Position;
-            Pokeball_Velocity = Displacement * Slingshot_Power;
+
+            Pokeball_Velocity = Displacement * Slingshot_Power * Mass;
 
             ResetSlingShotLines();
 
@@ -141,16 +154,15 @@ public class pokeball : MonoBehaviour
 
     void VoltrobCollision(Vector2 pokeballPosition)
     {
-       
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(pokeballPosition, 0.1f); 
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(pokeballPosition, 0.1f);
 
         foreach (Collider2D hit in hitEnemies)
         {
             if (hit.gameObject.CompareTag("Enemy"))
             {
-                Destroy(hit.gameObject); 
-                score++; 
-                UpdateScore(); 
+                Destroy(hit.gameObject);
+                score++;
+                UpdateScore();
             }
         }
     }
@@ -158,5 +170,33 @@ public class pokeball : MonoBehaviour
     private void UpdateScore()
     {
         ScoreText.text = "SCORE: " + score;
+    }
+
+    public void TogglePokeballType()
+    {
+
+        if (spriteRenderer.sprite == PokeballSprite)
+        {
+            spriteRenderer.sprite = RockSprite;
+            Mass = 5f;  // mass for the stone
+            Gravity = -30f;
+            Slingshot_Power = 1;
+
+        }
+        else
+        {
+            spriteRenderer.sprite = PokeballSprite;
+            Mass = 1f; //mass for the Pokeball
+            Gravity = -10f;
+            Slingshot_Power = 8;
+        }
+    }
+
+    private void SetPokeball()
+    {
+        spriteRenderer.sprite = PokeballSprite;
+        Mass = 1f;
+        Slingshot_Power = 8;
+
     }
 }
