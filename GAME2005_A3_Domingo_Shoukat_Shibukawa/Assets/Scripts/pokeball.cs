@@ -158,7 +158,7 @@ public class pokeball : MonoBehaviour
 
         foreach (Collider2D hit in hitEnemies)
         {
-            if (hit.gameObject.CompareTag("Enemy"))
+            if (hit.gameObject.CompareTag("Pokemon"))
             {
                 Destroy(hit.gameObject);
                 score++;
