@@ -164,6 +164,24 @@ public class pokeball : MonoBehaviour
                 score++;
                 UpdateScore();
             }
+            else if (hit.gameObject.CompareTag("Block"))
+            {
+                // Get the BlockPhysics component attached to the block
+                Terrain blockPhysics = hit.gameObject.GetComponent<Terrain>();
+
+                if (blockPhysics != null)
+                {
+                    // Calculate collision response for block with pokeball
+                    Vector2 blockPosition = hit.transform.position;
+                    Vector2 displacement = blockPosition - pokeballPosition;
+
+                    // Apply a basic physics collision response (this can be expanded)
+                    Vector2 collisionForce = displacement.normalized * Slingshot_Power;
+
+                    // Manually adjust block velocity or apply force
+                    blockPhysics.ApplyForce(collisionForce);
+                }
+            }
         }
     }
 
@@ -174,6 +192,12 @@ public class pokeball : MonoBehaviour
 
     public void TogglePokeballType()
     {
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        if (collider == null)
+        {
+           
+            return;
+        }
 
         if (spriteRenderer.sprite == PokeballSprite)
         {
@@ -181,6 +205,7 @@ public class pokeball : MonoBehaviour
             Mass = 5f;  // mass for the stone
             Gravity = -30f;
             Slingshot_Power = 1;
+            collider.radius = 5f;
 
         }
         else
@@ -189,6 +214,7 @@ public class pokeball : MonoBehaviour
             Mass = 1f; //mass for the Pokeball
             Gravity = -10f;
             Slingshot_Power = 8;
+            collider.radius = 2.5f;
         }
     }
 

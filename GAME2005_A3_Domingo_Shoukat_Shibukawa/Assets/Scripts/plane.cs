@@ -8,6 +8,8 @@ public class plane : MonoBehaviour
     public Transform groundEnd;    
     public float groundFriction = 0.5f;  
 
+
+
     private void OnDrawGizmos()
     {
         
